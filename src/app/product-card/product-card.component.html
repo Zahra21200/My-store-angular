@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+      <div class="col-4 d-flex" *ngFor="let product of singleProduct; let i = index">
+        <div class="card mb-3 flex-grow-1">
+          <img [src]="product.thumbnail" class="card-img-top" (click)="product_details(product.id)">
+          <div class="card-body">
+            <h4>{{ product.title }}</h4>
+            <p class="card-text">price : {{ product.price }}EGP</p>
+            <p class="card-text">category : {{ product.category }}</p>
+            <p class="card-text">
+              <span class="badge" [ngClass]="{'badge-green': product.stock > 0, 'badge-red': product.stock <= 0}">
+                {{ product.stock > 0 ? 'In Stock' : 'Out of Stock' }}
+              </span>
+            </p>
+            <p class="card-text">Rating: <span [innerHTML]="generateStarRating(product.rating)"></span></p>
+            <button class="btn btn-add-to-cart">Add to Cart</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

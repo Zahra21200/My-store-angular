@@ -1,0 +1,29 @@
+.badge {
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .badge-green {
+    background-color: green;
+    color: white;
+  }
+  
+  .badge-red {
+    background-color: red;
+    color: white;
+  }
+  .btn-add-to-cart {
+    background-color: white;
+    border: 2px solid green;
+    color: green;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .btn-add-to-cart:hover {
+    background-color: green;
+    color: white;
+  }
+  

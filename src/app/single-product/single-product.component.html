@@ -1,0 +1,16 @@
+<div *ngIf="productDetails" class="product-details-container">
+    <div class="product-info">
+      <h2>{{ productDetails.title }}</h2>
+      <p> {{ productDetails.description }}</p>
+      <p>{{ productDetails.brand }} </p>
+
+      <p>Price: {{ productDetails.price }} EGP</p>
+      <p>Category: {{ productDetails.category }}</p>
+      <p class="card-text">Rating: <span [innerHTML]="generateStarRating(productDetails.rating)"></span></p>
+
+    </div>
+    <div class="product-images">
+      <img class="main-image" [src]="productDetails.thumbnail" alt="Product Image">
+    </div>
+  </div>
+  

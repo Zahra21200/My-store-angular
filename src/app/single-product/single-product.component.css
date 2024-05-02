@@ -1,0 +1,19 @@
+.product-details-container {
+    display: flex;
+    margin-top: 50px;
+  }
+  
+  .product-info {
+    flex: 1;
+    padding: 0 20px;
+  }
+  
+  .product-images {
+    width: 400px; /* Adjust as needed */
+    margin-left: auto; /* Pushes the images to the right */
+  }
+  
+  .main-image {
+    width: 100%;
+  }
+  
