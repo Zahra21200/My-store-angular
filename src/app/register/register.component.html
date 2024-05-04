@@ -1,28 +1,55 @@
-<form>
+<form [formGroup]="registerForm" (ngSubmit)="handleFormSubmit()">
     <div class="mb-3">
       <label for="Name" class="form-label">Name</label>
-      <input type="text" class="form-control" id="Name" >
-      <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+      <input type="text" class="form-control" id="Name" formControlName="Name">
+      @if (registerForm.controls['Name'].invalid&&registerForm.controls['Name'].touched) {
+        <div id="emailHelp" class="form-text text-danger">Name is required</div>
+      }
     </div>
     <div class="mb-3">
       <label for="Email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="Email">
-            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-    </div>
+      <input type="email" class="form-control" id="Email" formControlName="Email">
+      @if (registerForm.controls['Email'].invalid&& registerForm.controls['Email'].touched) {
+        @if (registerForm.controls['Email'].errors?.['required']) { 
+           <div id="emailHelp" class="form-text text-danger">Email is required</div>
+    }
+    @if (registerForm.controls['Email'].errors?.['email']) { 
+        <div id="emailHelp" class="form-text text-danger">Invalid email format</div>
+ }
+    }    </div>
     <div class="mb-3">
         <label for="User_Name" class="form-label">User Name</label>
-        <input type="email" class="form-control" id="User_Name">
-        <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-      </div>
+        <input type="text" class="form-control" id="User_Name" formControlName="User_Name">
+        @if (registerForm.controls['User_Name'].invalid&& registerForm.controls['User_Name'].touched) {
+            @if (registerForm.controls['User_Name'].errors?.['required']) { 
+               <div id="emailHelp" class="form-text text-danger">User name is required</div>
+        }
+        @if (registerForm.controls['User_Name'].errors?.['pattern']) { 
+            <div id="emailHelp" class="form-text text-danger">User name contains no spaces</div>
+     }
+        }        </div>
       <div class="mb-3">
         <label for="Password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="Password">
-              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-      </div>
+        <input type="password" class="form-control" id="Password" formControlName="Password">
+        @if (registerForm.controls['Password'].invalid&& registerForm.controls['Password'].touched) {
+            @if (registerForm.controls['Password'].errors?.['required']) { 
+               <div id="emailHelp" class="form-text text-danger">Password is required</div>
+        }
+        @if (registerForm.controls['Password'].errors?.['pattern']) { 
+            <div id="emailHelp" class="form-text text-danger">password length not less than 8 characters , contains at least one lowercase , one uppercase , at least one digit and special character</div>
+     }
+        }        </div>
       <div class="mb-3">
         <label for="Confirm_Password" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="Confirm_Password">
-              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        <input type="password" class="form-control" id="Confirm_Password" formControlName="Confirm_Password">
+        @if (registerForm.controls['Confirm_Password'].invalid&& registerForm.controls['Confirm_Password'].touched) {
+            @if (registerForm.controls['Confirm_Password'].errors?.['required']) { 
+               <div id="emailHelp" class="form-text text-danger">Confirm Password is required</div>
+        }
+        @if (registerForm.controls['Confirm_Password'].errors?.['mismatch']) { 
+            <div id="emailHelp" class="form-text text-danger">password must match confirm password</div>
+     }
+        } 
       </div>
     <button type="submit" class="btn btn-primary">Register</button>
   </form>
