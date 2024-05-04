@@ -13,7 +13,7 @@
               </span>
             </p>
             <p class="card-text">Rating: <span [innerHTML]="generateStarRating(product.rating)"></span></p>
-            <button class="btn btn-add-to-cart">Add to Cart</button>
+            <button class="btn btn-add-to-cart" [disabled]="isInCart(product.id) || product.stock === 0" (click)="addToCart(product.id)">Add to Cart</button>
 
           </div>
         </div>
