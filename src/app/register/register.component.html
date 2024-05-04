@@ -31,7 +31,7 @@
       <div class="mb-3">
         <label for="Password" class="form-label">Password</label>
         <input type="password" class="form-control" id="Password" formControlName="Password">
-        @if (registerForm.controls['Password'].invalid&& registerForm.controls['Password'].touched) {
+        @if (registerForm.controls['Password'].invalid && registerForm.controls['Password'].touched) {
             @if (registerForm.controls['Password'].errors?.['required']) { 
                <div id="emailHelp" class="form-text text-danger">Password is required</div>
         }
@@ -52,4 +52,6 @@
         } 
       </div>
     <button type="submit" class="btn btn-primary">Register</button>
+    <p>Already have account! <a routerLink="/login">login</a></p>
+
   </form>
